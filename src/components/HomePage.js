@@ -234,11 +234,11 @@ const HomePage = () => {
         <h2>Подборка для вас</h2>
         <div className="prompts-grid">
           {prompts.map((prompt) => (
-            <Link
+            <div
               key={prompt.id}
-              to={`/prompt/${prompt.id}`}
               className={`prompt-card ${prompt.height}`}
-              style={{ textDecoration: 'none', color: 'inherit' }}
+              onClick={() => window.location.href = `/prompt/${prompt.id}`}
+              style={{ cursor: 'pointer' }}
             >
               <div className="prompt-image-wrapper">
                 <img src={prompt.image} alt="Prompt" className="prompt-image" />
@@ -253,7 +253,7 @@ const HomePage = () => {
                   @{prompt.author}
                 </Link>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
         

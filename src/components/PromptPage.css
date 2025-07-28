@@ -21,27 +21,41 @@
   line-height: 1.5;
 }
 
-.placeholder-inputs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
+.example-placeholder {
+  font-weight: 900;
+  color: #7c2d12;
+  background-color: rgba(251, 146, 60, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(251, 146, 60, 0.5);
+  font-size: 13px;
+  display: inline-block;
+  margin: 0 1px;
+}
+
+.placeholder-inputs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   margin-bottom: 25px;
 }
 
-.placeholder-input-group {
+.placeholder-input-item {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 8px;
 }
 
 .placeholder-label {
-  font-weight: 700;
-  color: #dc2626;
+  font-weight: 900;
+  color: #7c2d12;
   font-size: 14px;
-  background: rgba(220, 38, 38, 0.1);
-  padding: 2px 6px;
-  border-radius: 4px;
+  background: rgba(251, 146, 60, 0.2);
+  padding: 4px 8px;
+  border-radius: 6px;
   width: fit-content;
+  border: 2px solid rgba(251, 146, 60, 0.5);
+  box-shadow: 0 1px 3px rgba(251, 146, 60, 0.3);
 }
 
 .placeholder-input {
@@ -54,12 +68,12 @@
 
 .placeholder-input:focus {
   outline: none;
-  border-color: #dc2626;
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+  border-color: #fb923c;
+  box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.2);
 }
 
 .copy-prompt-btn {
-  background: #dc2626;
+  background: #fb923c;
   color: white;
   border: none;
   padding: 12px 24px;
@@ -71,10 +85,12 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  box-shadow: 0 2px 4px rgba(251, 146, 60, 0.3);
 }
 
 .copy-prompt-btn:hover {
-  background: #b91c1c;
+  background: #f97316;
+  box-shadow: 0 4px 8px rgba(251, 146, 60, 0.4);
 }
 
 .prompt-page {
@@ -242,12 +258,16 @@
 }
 
 .prompt-placeholder {
-  font-weight: bold;
-  color: #dc2626;
-  padding: 2px 6px;
-  border-radius: 4px;
-  background-color: rgba(220, 38, 38, 0.15);
-  border: 1px solid rgba(220, 38, 38, 0.3);
+  font-weight: 900;
+  color: #7c2d12;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background-color: rgba(251, 146, 60, 0.2);
+  border: 2px solid rgba(251, 146, 60, 0.5);
+  font-size: 14px;
+  display: inline-block;
+  margin: 0 2px;
+  box-shadow: 0 1px 3px rgba(251, 146, 60, 0.3);
 }
 
 .prompt-page__ratings {
