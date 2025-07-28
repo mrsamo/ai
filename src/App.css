@@ -1,0 +1,57 @@
+/* Шрифты Яндекса */
+@font-face {
+  font-display: optional;
+  font-family: 'YS Text Home';
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 400;
+  src: url(//yastatic.net/s3/home/fonts/ys/4/text-regular.woff2) format("woff2"),
+       url(//yastatic.net/s3/home/fonts/ys/4/text-regular.woff) format("woff");
+}
+
+@font-face {
+  font-display: optional;
+  font-family: 'YS Text Home';
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 500;
+  src: url(//yastatic.net/s3/home/fonts/ys/4/text-medium.woff2) format("woff2"),
+       url(//yastatic.net/s3/home/fonts/ys/4/text-medium.woff) format("woff");
+}
+
+@font-face {
+  font-display: optional;
+  font-family: 'YS Text Home';
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 700;
+  src: url(//yastatic.net/s3/home/fonts/ys/4/text-bold.woff2) format("woff2"),
+       url(//yastatic.net/s3/home/fonts/ys/4/text-bold.woff) format("woff");
+}
+
+.App {
+  text-align: left;
+  font-family: 'YS Text Home', -apple-system, BlinkMacSystemFont, Arial, Helvetica, 'Arial Unicode MS', sans-serif;
+  font-feature-settings: "liga", "kern";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.main-content {
+  padding: 0 2rem;
+  min-height: calc(100vh - 100px);
+}
+
+.main-content-full {
+  padding: 0;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

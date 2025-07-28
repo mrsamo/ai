@@ -1,0 +1,35 @@
+.navigation {
+  background-color: #343a40;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.navigation__container {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navigation__logo {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.navigation__menu {
+  display: flex;
+  gap: 1rem;
+}
+
+.navigation__link {
+  color: #adb5bd;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.navigation__link:hover {
+  background-color: #495057;
+}
