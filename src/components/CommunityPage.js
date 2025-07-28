@@ -96,6 +96,7 @@ const CommunityPage = () => {
       {/* Hero Section */}
       <div className="community-hero">
         <div className="community-hero__content">
+          <Link to="/" className="community-back">← Назад на главную</Link>
           <h1 className="community-hero__title">Сообщество Промптеров</h1>
           <p className="community-hero__description">
             Добро пожаловать в дом для AI-промптеров, где профессионалы делятся своими секретами, демонстрируют работы, оттачивают навыки и создают потрясающие изображения.

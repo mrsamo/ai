@@ -4,6 +4,20 @@
   color: white;
 }
 
+.community-back {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 20px;
+  display: inline-block;
+  opacity: 0.9;
+}
+
+.community-back:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
 /* Hero Section */
 .community-hero {
   display: flex;

@@ -9,175 +9,91 @@ const HomePage = () => {
   const [promptText, setPromptText] = useState('');
   const [isListening, setIsListening] = useState(false);
 
-  // 24 example prompts - memoized to prevent re-creation on every render
+  // New prompts data - memoized to prevent re-creation on every render
   const examplePrompts = useMemo(() => [
     {
       id: 1,
-      image: 'https://placehold.co/300x200/FF6B6B/FFFFFF?text=AI+Art',
-      text: 'Создай реалистичный портрет девушки в стиле ренессанс с современными элементами',
-      author: 'ArtMaster',
+      image: 'https://placehold.co/400x300/16a34a/white?text=ДИАГНОСТИКА+РАСТЕНИЙ',
+      text: 'Диагностика болезней растений по фото',
+      author: 'Садовод Иван',
       height: 'tall'
     },
     {
       id: 2,
-      image: 'https://placehold.co/300x150/4ECDC4/FFFFFF?text=Code',
-      text: 'Напиши функцию на Python для анализа данных из CSV файла',
-      author: 'CodeGuru',
+      image: 'https://placehold.co/400x300/991b1b/white?text=ЖАЛОБЫ+И+ЗАЯВЛЕНИЯ',
+      text: 'Составление жалоб и заявлений в #организация',
+      author: 'Юрист Анна',
       height: 'medium'
     },
     {
       id: 3,
-      image: 'https://placehold.co/300x180/45B7D1/FFFFFF?text=Design',
-      text: 'Создай минималистичный дизайн логотипа для IT-стартапа',
-      author: 'DesignPro',
-      height: 'medium'
-    },
-    {
-      id: 4,
-      image: 'https://placehold.co/300x220/96CEB4/FFFFFF?text=Story',
-      text: 'Напиши короткий рассказ о путешествии во времени в жанре научной фантастики',
-      author: 'StoryTeller',
+      image: 'https://placehold.co/400x300/0284c7/white?text=ДОМАШНИЕ+ЗАДАНИЯ',
+      text: 'Помощник с домашними заданиями по #предмет',
+      author: 'Учитель Мария',
       height: 'tall'
     },
     {
+      id: 4,
+      image: 'https://placehold.co/400x300/ea580c/white?text=РЕМОНТ+ТЕХНИКИ',
+      text: 'Диагностика поломки #техника по симптомам',
+      author: 'Мастер Сергей',
+      height: 'medium'
+    },
+    {
       id: 5,
-      image: 'https://placehold.co/300x140/FFEAA7/333333?text=Recipe',
-      text: 'Предложи рецепт здорового завтрака на основе овсянки',
-      author: 'ChefBot',
+      image: 'https://placehold.co/400x300/047857/white?text=СЕМЕЙНЫЙ+БЮДЖЕТ',
+      text: 'Планировщик семейного бюджета на #период',
+      author: 'Финансист Алексей',
       height: 'short'
     },
     {
       id: 6,
-      image: 'https://placehold.co/300x190/DDA0DD/FFFFFF?text=Music',
-      text: 'Создай текст песни в стиле инди-рок про городскую жизнь',
-      author: 'MusicMaker',
-      height: 'medium'
+      image: 'https://placehold.co/400x300/65a30d/white?text=ДАЧНЫЙ+КАЛЕНДАРЬ',
+      text: 'Календарь дачных работ для #регион',
+      author: 'Агроном Петр',
+      height: 'tall'
     },
     {
       id: 7,
-      image: 'https://placehold.co/300x160/98D8C8/FFFFFF?text=Business',
-      text: 'Составь бизнес-план для онлайн-магазина экологичных товаров',
-      author: 'BizExpert',
+      image: 'https://placehold.co/400x300/dc2626/white?text=МЕДИЦИНСКИЕ+АНАЛИЗЫ',
+      text: 'Расшифровка медицинских анализов простым языком',
+      author: 'Доктор Елена',
       height: 'medium'
     },
     {
       id: 8,
-      image: 'https://placehold.co/300x210/F7DC6F/333333?text=Education',
-      text: 'Объясни квантовую физику простыми словами для школьника',
-      author: 'EduMaster',
-      height: 'tall'
+      image: 'https://placehold.co/400x300/9333ea/white?text=ПОДБОР+ОДЕЖДЫ',
+      text: 'Подбор #тип_одежды по фото фигуры и стилю',
+      author: 'Стилист Анна',
+      height: 'medium'
     },
     {
       id: 9,
-      image: 'https://placehold.co/300x130/BB8FCE/FFFFFF?text=Fitness',
-      text: 'Создай программу тренировок для начинающих на дому',
-      author: 'FitCoach',
+      image: 'https://placehold.co/400x300/0284c7/white?text=ПЛАНИРОВЩИК+ПОЕЗДОК',
+      text: 'Планировщик путешествия в #город на #дни',
+      author: 'Путешественник Максим',
       height: 'short'
     },
     {
       id: 10,
-      image: 'https://placehold.co/300x170/85C1E9/FFFFFF?text=Travel',
-      text: 'Составь маршрут путешествия по Японии на 10 дней',
-      author: 'TravelGuru',
+      image: 'https://placehold.co/400x300/6d28d9/white?text=ВЫБОР+ТЕХНИКИ',
+      text: 'Помощник по выбору #техника для дома',
+      author: 'Консультант Игорь',
       height: 'medium'
     },
     {
       id: 11,
-      image: 'https://placehold.co/300x200/F8C471/333333?text=Marketing',
-      text: 'Разработай стратегию продвижения в социальных сетях для кафе',
-      author: 'MarketPro',
+      image: 'https://placehold.co/400x300/ea580c/white?text=СОСТАВЛЕНИЕ+РЕЗЮМЕ',
+      text: 'Составление резюме для #профессия',
+      author: 'HR-эксперт Ольга',
       height: 'tall'
     },
     {
       id: 12,
-      image: 'https://placehold.co/300x145/82E0AA/FFFFFF?text=Tech',
-      text: 'Объясни принципы работы блокчейна и криптовалют',
-      author: 'TechExplainer',
+      image: 'https://placehold.co/300x200/FF6B6B/FFFFFF?text=AI+Art',
+      text: 'Создай реалистичный портрет девушки в стиле ренессанс с современными элементами',
+      author: 'ArtMaster',
       height: 'short'
-    },
-    {
-      id: 13,
-      image: 'https://placehold.co/300x185/E8DAEF/333333?text=Psychology',
-      text: 'Дай советы по управлению стрессом и тревожностью',
-      author: 'MindHelper',
-      height: 'medium'
-    },
-    {
-      id: 14,
-      image: 'https://placehold.co/300x155/AED6F1/333333?text=Language',
-      text: 'Создай план изучения английского языка за 6 месяцев',
-      author: 'LangTeacher',
-      height: 'medium'
-    },
-    {
-      id: 15,
-      image: 'https://placehold.co/300x225/F9E79F/333333?text=DIY',
-      text: 'Инструкция по созданию мебели из поддонов своими руками',
-      author: 'DIYMaster',
-      height: 'tall'
-    },
-    {
-      id: 16,
-      image: 'https://placehold.co/300x135/D5A6BD/FFFFFF?text=Fashion',
-      text: 'Создай капсульный гардероб для офисного работника',
-      author: 'StyleGuru',
-      height: 'short'
-    },
-    {
-      id: 17,
-      image: 'https://placehold.co/300x175/A9DFBF/333333?text=Garden',
-      text: 'План создания огорода на балконе для новичков',
-      author: 'GreenThumb',
-      height: 'medium'
-    },
-    {
-      id: 18,
-      image: 'https://placehold.co/300x195/F4D03F/333333?text=Finance',
-      text: 'Стратегия накопления денег и инвестирования для молодых',
-      author: 'MoneyWise',
-      height: 'medium'
-    },
-    {
-      id: 19,
-      image: 'https://placehold.co/300x165/C39BD3/FFFFFF?text=Health',
-      text: 'Советы по поддержанию здорового образа жизни в офисе',
-      author: 'HealthCoach',
-      height: 'medium'
-    },
-    {
-      id: 20,
-      image: 'https://placehold.co/300x215/7FB3D3/FFFFFF?text=Photography',
-      text: 'Техники фотографии портретов при естественном освещении',
-      author: 'PhotoPro',
-      height: 'tall'
-    },
-    {
-      id: 21,
-      image: 'https://placehold.co/300x140/F7DC6F/333333?text=Cooking',
-      text: 'Рецепты быстрых ужинов для занятых людей',
-      author: 'QuickChef',
-      height: 'short'
-    },
-    {
-      id: 22,
-      image: 'https://placehold.co/300x180/85C1E9/FFFFFF?text=Productivity',
-      text: 'Методы повышения продуктивности и тайм-менеджмента',
-      author: 'ProductivityHack',
-      height: 'medium'
-    },
-    {
-      id: 23,
-      image: 'https://placehold.co/300x200/F1948A/FFFFFF?text=Relationships',
-      text: 'Советы по улучшению коммуникации в отношениях',
-      author: 'RelationshipCoach',
-      height: 'tall'
-    },
-    {
-      id: 24,
-      image: 'https://placehold.co/300x150/58D68D/FFFFFF?text=Creativity',
-      text: 'Упражнения для развития креативного мышления',
-      author: 'CreativeMind',
-      height: 'medium'
     }
   ], []);
 
@@ -279,17 +195,17 @@ const HomePage = () => {
       {/* Top three blocks */}
       <div className="top-blocks">
         <div className="top-block">
-          <img src="https://placehold.co/120x80/4ECDC4/FFFFFF?text=📚" alt="Обучение" />
+          <img src="https://placehold.co/120x80/4ECDC4/FFFFFF?text=📚" alt="Вопросы" />
           <span>Вопросы</span>
         </div>
         <Link to="/community" className="top-block">
-          <img src="https://placehold.co/120x80/FF6B6B/FFFFFF?text=🎉" alt="События" />
+          <img src="https://placehold.co/120x80/FF6B6B/FFFFFF?text=🎉" alt="Комьюнити" />
           <span>Комьюнити</span>
         </Link>
-        <div className="top-block">
-          <img src="https://placehold.co/120x80/45B7D1/FFFFFF?text=⭐" alt="Лучшее" />
+        <Link to="/learning" className="top-block">
+          <img src="https://placehold.co/120x80/45B7D1/FFFFFF?text=⭐" alt="Обучение" />
           <span>Обучение</span>
-        </div>
+        </Link>
       </div>
 
       {/* Prompt input area */}
@@ -329,7 +245,13 @@ const HomePage = () => {
               </div>
               <div className="prompt-content">
                 <p className="prompt-text">{prompt.text}</p>
-                <span className="prompt-author">@{prompt.author}</span>
+                <Link
+                  to={`/user/${prompt.author.replace(/\s+/g, '').toLowerCase()}`}
+                  className="prompt-author"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  @{prompt.author}
+                </Link>
               </div>
             </Link>
           ))}
