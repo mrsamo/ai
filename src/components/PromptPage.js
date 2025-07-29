@@ -4,7 +4,6 @@ import './PromptPage.css';
 
 const PromptPage = () => {
   const { id } = useParams();
-  const [newTag, setNewTag] = useState('');
   const [placeholderInputs, setPlaceholderInputs] = useState({});
 
   // Новые данные промптов
@@ -691,7 +690,7 @@ const PromptPage = () => {
   };
 
   const extractPlaceholders = (content) => {
-    const placeholderRegex = /#([a-zA-Z0-9_]+)/g;
+    const placeholderRegex = /#([^#\s]+)/g;
     const placeholders = [];
     let match;
     while ((match = placeholderRegex.exec(content)) !== null) {
@@ -872,13 +871,6 @@ const PromptPage = () => {
               ))}
             </div>
             
-            <input
-              type="text"
-              placeholder="Добавить новый тег"
-              value={newTag}
-              onChange={(e) => setNewTag(e.target.value)}
-              className="tag-input"
-            />
           </div>
 
           <div className="external-links">
